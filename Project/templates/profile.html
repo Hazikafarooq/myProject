@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Create Profile</title>
+</head>
+
+<body>
+    {% if single.id %}
+
+    <form method="POST" action="/profile/{{single.id}}/">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" class="form-control" id="nameInput" placeholder="{{single.name}}" , name="name">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+
+        <div class="form-group">
+            <label for="ratingInput">Rating</label>
+            <input class="form-control" id="ratingInput" aria-describedby="emailHelp" placeholder="{{single.rating}}" ,
+                name="rating">
+        </div>
+
+        <div class="form-group">
+            <label for="tagInput">Tag</label>
+            <input class="form-control" id="tagInput" aria-describedby="emailHelp" placeholder="{{single.tag}}" ,
+                name="tag">
+        </div>
+
+        <div class="form-group">
+            <label for="tagInput">Charges</label>
+            <input class="form-control" id="chargesInput" aria-describedby="emailHelp" placeholder="{{single.charges}}"
+                , name="charges">
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">City</label>
+            <select class="form-control" id="cityInput" name="city">
+                {% for city in cities %}
+                <option value={{city.id}}>{{city.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="exampleFormControlSelect1">Country</label>
+            <select class="form-control" id="countryInput" name="country">
+                {% for city in cities %}
+                <option value={{city.id}}>{{city.country}}</option>
+                {% endfor %}
+            </select>
+        </div> -->
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Field</label>
+            <select class="form-control" id="fieldInput" name="field">
+                {% for field in fields %}
+                <option value={{field.id}}>{{field.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Save Changes" />
+    </form>
+    {% else %}
+    <form method="POST" action="/profile/">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" class="form-control" id="nameInput" placeholder="" , name="name">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+
+        <div class="form-group">
+            <label for="ratingInput">Rating</label>
+            <input class="form-control" id="ratingInput" aria-describedby="emailHelp" placeholder="" , name="rating">
+        </div>
+
+        <div class="form-group">
+            <label for="tagInput">Tag</label>
+            <input class="form-control" id="tagInput" aria-describedby="emailHelp" placeholder="" , name="tag">
+        </div>
+
+        <div class="form-group">
+            <label for="tagInput">Charges</label>
+            <input class="form-control" id="chargesInput" aria-describedby="emailHelp" placeholder="" , name="charges">
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">City</label>
+            <select class="form-control" id="cityInput" name="city">
+                {% for city in cities %}
+                <option value={{city.id}}>{{city.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- <div class="form-group">
+            <label for="exampleFormControlSelect1">Country</label>
+            <select class="form-control" id="countryInput" name="country">
+                {% for city in cities %}
+                <option value={{city.id}}>{{city.country}}</option>
+                {% endfor %}
+            </select>
+        </div> -->
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Field</label>
+            <select class="form-control" id="fieldInput" name="field">
+                {% for field in fields %}
+                <option value={{field.id}}>{{field.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Save Changes" />
+    </form>
+    {% endif %}
+    <!-- <input type="submit" value="Save Changes" /> -->
+    <!--<input type="submit" value="Delete" /> -->
+
+
+    <!-- <input type="submit" value="Save Changes" /> -->
+
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
